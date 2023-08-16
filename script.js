@@ -96,9 +96,9 @@ const luftanza = {
     }
 }
 
-luftanza.book(234, "Yash")
-luftanza.book(999, "jones")
-console.log(luftanza);
+// luftanza.book(234, "Yash")
+// luftanza.book(999, "jones")
+// console.log(luftanza);
 
 
 const euorings = {
@@ -107,11 +107,11 @@ const euorings = {
     bookings: [],
 }
 
-
 const book = luftanza.book;
-book.call(euorings, 9999, "abcd");
-book.call(euorings, 6666, "xyz");
-console.log(euorings);
+
+// book.call(euorings, 9999, "abcd");
+// book.call(euorings, 6666, "xyz");
+// console.log(euorings);
 
 
 const swiss = {
@@ -120,14 +120,119 @@ const swiss = {
     bookings: [],
 }
 
-book.call(swiss, 111, "nnnnnnnn")
-console.log(swiss);
+// book.call(swiss, 111, "nnnnnnnn")
+// console.log(swiss);
 
 
 //////////////////////////////////////////////////////////////
 // apply method
 
-const flightData = [7777, "newUser"]
-book.apply(swiss, flightData);
+// const flightData = [7777, "newUser"]
+// book.apply(swiss, flightData);
 
-book.call(swiss, ...flightData)
+// book.call(swiss, ...flightData)
+
+//////////////////////////////////////////////////////////////
+// bind method
+
+const euoringsSD = book.bind(euorings);
+const swissHJ = book.bind(swiss);
+const luftanzaLH = book.bind(luftanza);
+
+
+// euoringsSD(1234, 'yyyyyyyyyyyy')
+// swissHJ(2222, 'ssssssssssssssss')
+// luftanzaLH(3333, 'llllllllllllll')
+
+// const euorings2323 = book.bind(euorings, 2323)
+// euorings2323('ttttttttttt')
+
+// luftanza.planes = 300;
+// luftanza.buyPlane = function () {
+//     console.log(this);
+//     this.planes++;
+//     console.log(this.planes);
+// }
+
+// document.querySelector(".buy").addEventListener('click', luftanza.buyPlane.bind(luftanza))
+
+
+// const addTax = (rate, value) => value + value * rate
+// // console.log(addTax(0.1, 200));
+
+// const addVAT = addTax.bind(null, 0.23)    //addVAT(value)=> value + value * 0.23
+// console.log(addVAT(100));
+
+// const addTax = function (rate) {
+//     return function (value) {
+//         return value + value * rate
+//     }
+// }
+
+// const addTaxVAT = addTax(0.23)
+// console.log(addTaxVAT(100));
+
+/////////////////////////////////////////////////////////////////////////////
+
+// Coding Challenge - 1
+
+// const poll = {
+//     question: "What is your favourite programming language?",
+//     options: ["0: JavaScript", "1: Python", "2: Rust", "3:C++"],
+//     // This generates [0, 0, 0, 0]. More in the next section!
+//     answers: new Array(4).fill(0),
+//     registerNewAnswer() {
+//         const option = Number(prompt(`What is your favourite programming language?
+//         0: JavaScript
+//         1: Python
+//         2: Rust
+//         3: C++
+//         (Write option number)`));
+
+//         typeof option === 'number' && option < this.answers.length - 1 && this.answers[option]++
+//         this.displayResults('string')
+//     },
+//     displayResults(type = 'array') {
+//         if (type === "array")
+//             console.log(this.answers);
+//         else
+//             console.log("Poll results are: ", this.answers.join(', '));
+//     }
+// };
+
+// document.querySelector(".poll").addEventListener('click', poll.registerNewAnswer.bind(poll))
+
+/////////////////////////////////////////////////////////////////////////////////
+
+// immediatly invoked function
+// (function a() {
+//     console.log("one time");
+// })();
+// (() => console.log("this functoin invoke inly one time"))()
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+// Closures
+
+// function secureBooking() {
+//     let passengerCount = 0;
+//     return function () {
+//         passengerCount++;
+//         console.log(`${passengerCount} passengers`);
+//     }
+// }
+
+// const booker = secureBooking()
+// booker();
+// booker();
+
+const add = (function () {
+    var counter = 0;
+    return function () { counter += 1; return counter }
+})();
+
+// Call add() 3 times
+console.log(add());
+console.log(add());
+console.log(add());
