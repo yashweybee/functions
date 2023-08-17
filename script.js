@@ -227,12 +227,61 @@ const luftanzaLH = book.bind(luftanza);
 // booker();
 // booker();
 
-const add = (function () {
-    var counter = 0;
-    return function () { counter += 1; return counter }
-})();
+// const add = (function () {
+//     var counter = 0;
+//     return function () { counter += 1; return counter }
+// })();
 
-// Call add() 3 times
-console.log(add());
-console.log(add());
-console.log(add());
+// // Call add() 3 times
+// console.log(add());
+// console.log(add());
+// console.log(add());
+
+// let f;
+
+// const g = function () {
+//     let a = 20;
+//     f = function () {
+//         console.log(a * 2);
+//     }
+// }
+// const h = function () {
+//     let b = 20;
+//     f = function () {
+//         console.log(b * 2);
+//     }
+// }
+
+// g();
+// console.log(f);
+// h()
+// console.log(f);
+
+
+// const boardPassengers = function (n, wait) {
+//     // const perGroup = n / 3;
+
+//     setTimeout(() => {
+//         console.log(`We are now boarding all ${n} passengers`);
+
+//         console.log(`There are 3 group, each with ${perGroup} passenges`);
+//     }, wait * 1000);
+
+//     console.log(`Will start boarding in ${wait} seconds`);
+// }
+
+// boardPassengers(100, 3)
+// const perGroup = 1000;
+
+////////////////////////////////////////////////////////////////////////
+
+// Coding Challenge - 2
+
+(function () {
+    const header = document.querySelector('h1');
+    header.style.color = 'red';
+
+    document.querySelector("body").addEventListener('click', function () {
+        header.style.color = 'blue';
+    });
+})();
