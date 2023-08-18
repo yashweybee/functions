@@ -35,10 +35,10 @@
 
 // checkIn(flight, jonas)
 
-// const newPassport = function (flightNum, passenger) {
+// const newPassport = function (passenger) {
 //     passenger.passport = Math.trunc(Math.random() * 100000000000)
 // }
-// newPassport('A637', jonas)
+// newPassport(jonas)
 // checkIn('S763', jonas)
 
 // console.log(flight);
