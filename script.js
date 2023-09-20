@@ -109,9 +109,9 @@ const euorings = {
 
 const book = luftanza.book;
 
-// book.call(euorings, 9999, "abcd");
-// book.call(euorings, 6666, "xyz");
-// console.log(euorings);
+book.call(euorings, 9999, "abcd");
+book.call(euorings, 6666, "xyz");
+console.log(euorings);
 
 
 const swiss = {
@@ -232,7 +232,7 @@ const luftanzaLH = book.bind(luftanza);
 //     return function () { counter += 1; return counter }
 // })();
 
-// // Call add() 3 times
+// // // Call add() 3 times
 // console.log(add());
 // console.log(add());
 // console.log(add());
